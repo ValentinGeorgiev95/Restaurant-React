@@ -1,0 +1,62 @@
+@mixin xs {
+
+    //for small desktop 
+    @media only screen and (max-width: 576px) {
+        @content;
+    }
+}
+
+@mixin sm {
+
+    //for small desktop 
+    @media only screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin md {
+
+    //for small desktop 
+    @media only screen and (max-width: 991px) {
+        @content;
+    }
+}
+
+@mixin lg {
+
+    //for small desktop 
+    @media only screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin xl {
+
+    //for normal desktop
+    @media only screen and (max-width: 1440px) {
+        @content;
+    }
+}
+
+@mixin inline-block-middle {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@mixin inline-block-top {
+    display: inline-block;
+    vertical-align: top;
+}
+
+@mixin inline-block-bottom {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+@mixin pseudo-element {
+    content: '';
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+}
