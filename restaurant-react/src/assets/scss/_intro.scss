@@ -1,0 +1,16 @@
+.home {
+    .section-intro {
+        height: 100vh;
+        min-height: 700px;
+    }
+}
+
+.section-intro {
+    >.carousel-root {
+        height: 100%;
+
+        >.carousel {
+            height: 100%;
+        }
+    }
+}

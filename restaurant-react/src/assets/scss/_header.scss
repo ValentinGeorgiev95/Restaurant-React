@@ -1,6 +1,6 @@
 .header {
     position: absolute;
-    top: 80px;
+    top: 35px;
     left: 0;
     right: 0;
     width: 100%;
@@ -34,10 +34,6 @@
         >li {
             margin: 0 10px;
 
-            &.active {
-                color: $red;
-            }
-
             >a {
                 display: block;
                 transition: 0.3s;
@@ -46,6 +42,10 @@
                 font-size: 13px;
 
                 &:hover {
+                    color: $red;
+                }
+
+                &.active {
                     color: $red;
                 }
             }
