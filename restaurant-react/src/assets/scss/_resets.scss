@@ -1,0 +1,74 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none !important;
+    box-shadow: none;
+}
+
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+
+.disabled,
+:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+
+    label {
+        cursor: not-allowed;
+    }
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+strong {
+    font-weight: 700;
+}
+
+header,
+footer,
+section {
+    display: block;
+}
+
+html,
+body {
+    font-family: 'Roboto', 'arial', sans-serif;
+    position: relative;
+}

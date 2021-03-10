@@ -1,0 +1,54 @@
+.header {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 3;
+
+    .shell {
+        background: rgba(0, 0, 0, .4);
+        border-radius: 5px;
+        height: 85px;
+        padding: 0 15px 0 25px;
+    }
+}
+
+.logo {
+    color: $red;
+    font-weight: 700;
+    font-size: 20px;
+    transition: 0.3s;
+
+    &:hover {
+        color: #fff;
+    }
+
+    >span {
+        color: #fff;
+    }
+}
+
+.nav-utilities {
+    >ul {
+        >li {
+            margin: 0 10px;
+
+            &.active {
+                color: $red;
+            }
+
+            >a {
+                display: block;
+                transition: 0.3s;
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 13px;
+
+                &:hover {
+                    color: $red;
+                }
+            }
+        }
+    }
+}

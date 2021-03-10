@@ -1,0 +1,57 @@
+.shell {
+    width: 1140px;
+    margin: 0 auto;
+
+    @include lg {
+        max-width: 960px;
+    }
+
+    @include md {
+        max-width: 720px;
+    }
+
+    @include sm {
+        max-width: 540px;
+    }
+
+    @include xs {
+        width: 100%;
+        padding: 0 15px;
+    }
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-inline-flex {
+    display: inline-flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-start {
+    align-items: flex-start;
+}
+
+.align-items-end {
+    align-items: flex-end;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-start {
+    justify-content: flex-start;
+}
+
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
