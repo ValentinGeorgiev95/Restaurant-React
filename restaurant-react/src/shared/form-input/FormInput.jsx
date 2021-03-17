@@ -2,16 +2,17 @@ import React from 'react';
 
 const FormInput = (props) => {
     const onChange = (e) => {
-        props.onChange(e.value);
+        props.onChange(e);
     }
 
     return (
-        <div className="form-group">
+        <div className="form-group d-flex flex-column">
             <label>{props.label}</label>
             <input
                 type={props.type}
                 onChange={onChange}
                 value={props.value ?? ''}
+                name={props.name}
                 placeholder={props.placeholder}
                 maxLength={props.maxLength}
                 required={props.required}

@@ -37,7 +37,7 @@
         font-family: $Dancing;
         font-size: 135px;
         font-weight: 400;
-        color: rgba(255, 255, 255, .9);
+        color: $light-white;
         text-transform: uppercase;
     }
 }
@@ -52,7 +52,7 @@
 
 .intro-subheading {
     font-size: 16px;
-    color: rgba(255, 255, 255, .9);
+    color: $light-white;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 5px;
