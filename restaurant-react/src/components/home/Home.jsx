@@ -1,14 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import FormInput from '../../shared/form-input/FormInput';
 import DatePicker from '../../shared/datepicker/Datepicker';
 import TimePicker from '../../shared/timepicker/Timepicker';
 import MenuSection from '../../shared/menu-section/MenuSection';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "react-datepicker/dist/react-datepicker.css";
+
 import HomeCarouseImageOne from '../../assets/img/cuts/home-intro-one.jpg';
 import HomeCarouseImageTwo from '../../assets/img/cuts/home-intro-two.jpg';
-import Chef from '../../assets/img/cuts/chef.png';
+import ChefImage from '../../assets/img/cuts/chef.png';
+import PersonTestimonialImg from '../../assets/img/cuts/person-testimonial.jpg';
+import MainChefOneImage from '../../assets/img/cuts/main-chef-one.jpg'
+import MainChefTwoImage from '../../assets/img/cuts/main-chef-two.jpg'
 
 class Home extends React.Component {
     constructor(props) {
@@ -27,7 +31,6 @@ class Home extends React.Component {
     }
 
     handleInputChange = (e) => {
-        console.log(e, 'e');
         const { name, value } = e.target;
 
         this.setState(prevState => ({
@@ -39,7 +42,6 @@ class Home extends React.Component {
     }
 
     handleDateChange = (date, pickerType) => {
-        console.log(date, 'date');
         if (pickerType === 'datepicker') {
             this.setState(prevState => ({
                 bookingModel: {
@@ -151,7 +153,7 @@ class Home extends React.Component {
                                 It has survived not only five centuries, but also the leap into electronic typesetting,
                                 remaining essentially unchanged. It was popularised in the 1960s with the release of.
                             </p>
-                            <img src={Chef} alt="" />
+                            <img src={ChefImage} alt="" />
                         </div>{/* section-text */}
                     </div>{/* shell */}
                 </section>{/* section-about */}
@@ -164,39 +166,69 @@ class Home extends React.Component {
                 </section>{/* section-features */}
                 <MenuSection />
                 <section className="section-testimonials">
+                    <div className="overlay h-100 w-100"></div>
                     <div className="shell">
-                        <div className="section-head">
+                        <div className="section-head text-align-center">
                             <h4 className="section-subheading">Testimony</h4>
                             <h3 className="section-title">Happy Customers</h3>
                         </div>{/* section-head */}
                         <div className="section-body">
                             <Carousel
-                                swipeable
                                 showIndicators
                                 showArrows={false}
                                 showStatus={false}
                                 showThumbs={false}
                             >
-                                <div className="carousel-slide">
-                                    <div className="overlay"></div>
-                                    <img src={HomeCarouseImageOne} alt="" />
-                                    <div className="intro-text shell">
-                                        <span className="intro-subheading">Valentino Restaurant</span>
-                                        <h1>Best Quality</h1>
-                                    </div>{/* intro-text */}
+                                <div className="carousel-slide d-flex flex-column justify-content-center">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    <img src={PersonTestimonialImg} alt="" />
                                 </div>
-                                <div className="carousel-slide">
-                                    <div className="overlay"></div>
-                                    <img src={HomeCarouseImageTwo} alt="" />
-                                    <div className="intro-text shell">
-                                        <span className="intro-subheading">Valentino Restaurant</span>
-                                        <h1>Made With Love</h1>
-                                    </div>{/* intro-text */}
+                                <div className="carousel-slide d-flex flex-column justify-content-center">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    <img src={PersonTestimonialImg} alt="" />
                                 </div>
                             </Carousel>
                         </div>{/* section-body */}
                     </div>{/* shell */}
                 </section>{/* section-testimonials */}
+                <section className="section-team">
+                    <div className="shell">
+                        <div className="section-head text-align-center">
+                            <h4 className="section-subheading">Chefs</h4>
+                            <h3 className="section-title">Our Master Chefs</h3>
+                        </div>{/* section-head */}
+                        <div className="section-body d-flex justify-content-between">
+                            <div className="chef">
+                                <img src={MainChefOneImage} alt="" />
+                                <h5>John Gustavo</h5>
+                                <p>CEO, Co Found</p>
+                                <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                            </div>{/* chef */}
+                            <div className="chef">
+                                <img src={MainChefTwoImage} alt="" />
+                                <h5>John Gustavo</h5>
+                                <p>CEO, Co Found</p>
+                                <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                            </div>{/* chef */}
+                            <div className="chef">
+                                <img src={MainChefOneImage} alt="" />
+                                <h5>John Gustavo</h5>
+                                <p>CEO, Co Found</p>
+                                <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                            </div>{/* chef */}
+                            <div className="chef">
+                                <img src={MainChefTwoImage} alt="" />
+                                <h5>John Gustavo</h5>
+                                <p>CEO, Co Found</p>
+                                <p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
+                            </div>{/* chef */}
+                        </div>{/* section-body */}
+                    </div>{/* shell */}
+                </section>{/* section-team */}
+                <section className="section-callout text-align-center">
+                    <h3>We Make Delicious & Nutritious Food</h3>
+                    <Link to={'/'}>Book A Table Now</Link>
+                </section>{/* section-callout */}
             </div>
         )
     }

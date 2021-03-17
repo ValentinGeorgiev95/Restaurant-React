@@ -68,6 +68,10 @@
     height: 100%;
 }
 
+.text-align-center {
+    text-align: center;
+}
+
 .overlay {
     position: absolute;
     top: 0;
@@ -75,8 +79,7 @@
     right: 0;
     left: 0;
     background: #000;
-    opacity: .5;
-    width: 100%;
+    opacity: .7;
     z-index: 1;
 }
 
@@ -89,7 +92,7 @@
     line-height: 1;
     font-family: $Dancing;
     margin-bottom: -20px;
-    z-index: -1;
+    z-index: 0;
 }
 
 .section-title {
@@ -98,4 +101,6 @@
     line-height: 1.3;
     color: $light-black;
     line-height: 1.333;
+    position: relative;
+    z-index: 1;
 }

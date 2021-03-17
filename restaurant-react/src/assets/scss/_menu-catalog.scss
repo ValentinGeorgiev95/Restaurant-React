@@ -1,10 +1,6 @@
 .section-menu {
     margin: 70px 0 90px 0;
 
-    .section-head {
-        text-align: center;
-    }
-
     .section-body {
         display: flex;
         flex-flow: row wrap;
@@ -19,6 +15,28 @@
     border-radius: 5px;
     padding: 50px 20px;
     margin-top: 30px;
+    position: relative;
+
+    &:before,
+    &:after {
+        @include pseudo-element;
+        top: 10px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 40px;
+        height: 40px;
+        opacity: 0.6;
+    }
+
+    &:before {
+        background-image: url('../img/icons/vegetable.svg');
+        left: 10px;
+    }
+
+    &:after {
+        background-image: url('../img/icons/champagne-glass.svg');
+        right: 10px;
+    }
 
     >h5 {
         text-transform: uppercase;
