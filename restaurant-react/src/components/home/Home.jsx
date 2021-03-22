@@ -168,7 +168,7 @@ class Home extends React.Component {
                 <section className="section-testimonials">
                     <div className="overlay h-100 w-100"></div>
                     <div className="shell">
-                        <div className="section-head text-align-center">
+                        <div className="section-head text-center">
                             <h4 className="section-subheading">Testimony</h4>
                             <h3 className="section-title">Happy Customers</h3>
                         </div>{/* section-head */}
@@ -193,7 +193,7 @@ class Home extends React.Component {
                 </section>{/* section-testimonials */}
                 <section className="section-team">
                     <div className="shell">
-                        <div className="section-head text-align-center">
+                        <div className="section-head text-center">
                             <h4 className="section-subheading">Chefs</h4>
                             <h3 className="section-title">Our Master Chefs</h3>
                         </div>{/* section-head */}
@@ -225,7 +225,7 @@ class Home extends React.Component {
                         </div>{/* section-body */}
                     </div>{/* shell */}
                 </section>{/* section-team */}
-                <section className="section-callout text-align-center">
+                <section className="section-callout text-center">
                     <h3>We Make Delicious & Nutritious Food</h3>
                     <Link to={'/'}>Book A Table Now</Link>
                 </section>{/* section-callout */}

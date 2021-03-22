@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-class Header extends React.Component {
+class Header extends React.PureComponent {
     constructor(props) {
         super(props);
 
@@ -12,7 +12,9 @@ class Header extends React.Component {
     }
 
     stickyHeader = () => {
-        if (window.pageYOffset > 300) {
+        const offset = window.scrollY;
+
+        if (offset > 300) {
             this.header.current.classList.add('fixed');
         } else {
             this.header.current.classList.remove('fixed');

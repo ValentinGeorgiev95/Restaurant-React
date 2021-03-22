@@ -260,5 +260,11 @@
         padding: 6px 12px;
         margin-top: 20px;
         font-size: 18px;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: #fff;
+            color: $red;
+        }
     }
 }

@@ -7,7 +7,9 @@ const FormInput = (props) => {
 
     return (
         <div className="form-group d-flex flex-column">
-            <label>{props.label}</label>
+            {props.label && (
+                <label>{props.label}</label>
+            )}
             <input
                 type={props.type}
                 onChange={onChange}
