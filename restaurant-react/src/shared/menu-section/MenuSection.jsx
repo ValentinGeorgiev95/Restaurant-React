@@ -17,7 +17,7 @@ const MenuSection = (props) => {
     return (
         <section className="section-menu">
             <div className="shell">
-                <div className="section-head text-align-center">
+                <div className="section-head text-center">
                     <h4 className="section-subheading">Specialties</h4>
                     <h3 className="section-title">Our Menu</h3>
                 </div>{/* section-head */}

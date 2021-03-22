@@ -60,6 +60,18 @@
     flex-direction: column;
 }
 
+.flex-row-wrap {
+    flex-flow: row wrap;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+.flex-basis-0 {
+    flex-basis: 0;
+}
+
 .w-100 {
     width: 100%;
 }
@@ -68,7 +80,7 @@
     height: 100%;
 }
 
-.text-align-center {
+.text-center {
     text-align: center;
 }
 
@@ -103,4 +115,24 @@
     line-height: 1.333;
     position: relative;
     z-index: 1;
+}
+
+.list-socials {
+    >li {
+        @include inline-block-middle;
+        transition: 0.3s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &+li {
+            margin-left: 25px;
+        }
+
+        >a {
+            width: 30px;
+            display: block;
+        }
+    }
 }
