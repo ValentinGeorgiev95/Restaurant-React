@@ -40,22 +40,10 @@ class Header extends React.PureComponent {
                                 <NavLink to={'/'} exact>Home</NavLink>
                             </li>
                             <li>
-                                <NavLink to={'/'} exact>about</NavLink>
+                                <NavLink to={'/basket'} exact>basket</NavLink>
                             </li>
                             <li>
-                                <NavLink to={'/'} exact>chef</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/'} exact>menu</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/'} exact>reservation</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/'} exact>blog</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/'} exact>contact</NavLink>
+                                <NavLink to={'/login'} exact>Login</NavLink>
                             </li>
                         </ul>
                     </div>{/* nav-utilities */}
