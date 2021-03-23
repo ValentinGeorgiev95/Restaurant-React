@@ -1,9 +1,11 @@
 import React from 'react';
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
 import Home from '../../components/home/Home';
-import Login from '../../components/login';
+import Login from '../../components/login/LoginContainer';
+import { authCheckState } from '../../store/actions/auth';
 
-function FourOFour() {
+const fourOFour = () => {
     return (
         <div className="page-not-found d-flex align-items-center justify-content-center">
             <h2 className="text-center">
@@ -15,14 +17,49 @@ function FourOFour() {
     )
 }
 
-function Routes() {
-    return (
-        <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/login" exact component={Login} />
-            <Route component={FourOFour} />
-        </Switch>
-    )
+class Routes extends React.Component {
+    componentDidMount() {
+        this.props.onTryAutoSignup();
+    }
+
+    render() {
+        let routes = null;
+        if (this.props.isAuthenticated) {
+            routes = (
+                <Switch>
+                    <Route path="/" exact component={Home} />
+                    <Route path="/basket" exact component={() => <p>basket</p>} />
+                    <Route path="/orders" exact component={() => <p>orders</p>} />
+                    <Route path="/logout" exact component={() => <p>logout</p>} />
+                    <Route component={fourOFour} />
+                </Switch >
+            );
+        } else {
+            routes = (
+                <Switch>
+                    <Route path="/" exact component={Home} />
+                    <Route path="/basket" exact component={() => <p>basket</p>} />
+                    <Route path="/login" exact component={Login} />
+                    <Route component={fourOFour} />
+                </Switch >
+            );
+        }
+        return (
+            routes
+        )
+    }
 }
 
-export default Routes;
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.token !== null
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onTryAutoSignup: () => dispatch(authCheckState())
+    };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Routes));

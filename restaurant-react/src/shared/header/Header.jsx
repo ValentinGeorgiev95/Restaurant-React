@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Header extends React.PureComponent {
     constructor(props) {
@@ -43,7 +44,14 @@ class Header extends React.PureComponent {
                                 <NavLink to={'/basket'} exact>basket</NavLink>
                             </li>
                             <li>
-                                <NavLink to={'/login'} exact>Login</NavLink>
+                                {this.props.isAuthenticated ? (
+                                    <React.Fragment>
+                                        <NavLink to={'orders'} exact>orders</NavLink>
+                                        <NavLink to={'logout'} exact>logout</NavLink>
+                                    </React.Fragment>
+                                ) : (
+                                    <NavLink to={'/login'} exact>Login</NavLink>
+                                )}
                             </li>
                         </ul>
                     </div>{/* nav-utilities */}
@@ -53,4 +61,10 @@ class Header extends React.PureComponent {
     }
 }
 
-export default Header;
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.token,
+    }
+}
+
+export default connect(mapStateToProps)(Header);
