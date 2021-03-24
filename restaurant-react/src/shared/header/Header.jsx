@@ -43,16 +43,20 @@ class Header extends React.PureComponent {
                             <li>
                                 <NavLink to={'/basket'} exact>basket</NavLink>
                             </li>
-                            <li>
-                                {this.props.isAuthenticated ? (
-                                    <React.Fragment>
+                            {this.props.isAuthenticated ? (
+                                <React.Fragment>
+                                    <li>
                                         <NavLink to={'orders'} exact>orders</NavLink>
+                                    </li>
+                                    <li>
                                         <NavLink to={'logout'} exact>logout</NavLink>
-                                    </React.Fragment>
-                                ) : (
+                                    </li>
+                                </React.Fragment>
+                            ) : (
+                                <li>
                                     <NavLink to={'/login'} exact>Login</NavLink>
-                                )}
-                            </li>
+                                </li>
+                            )}
                         </ul>
                     </div>{/* nav-utilities */}
                 </div>{/* shell */}
@@ -63,7 +67,7 @@ class Header extends React.PureComponent {
 
 const mapStateToProps = state => {
     return {
-        isAuthenticated: state.auth.token,
+        isAuthenticated: state.auth.token !== null,
     }
 }
 

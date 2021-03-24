@@ -1,9 +1,10 @@
 import React from 'react';
 import { Switch, Route, withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
-import Home from '../../components/home/Home';
-import Login from '../../components/login/LoginContainer';
 import { authCheckState } from '../../store/actions/auth';
+import Home from '../../components/home/Home';
+import Login from '../../components/auth/login/LoginContainer';
+import Logout from '../../components/auth/logout/LogoutContainer';
 
 const fourOFour = () => {
     return (
@@ -30,7 +31,7 @@ class Routes extends React.Component {
                     <Route path="/" exact component={Home} />
                     <Route path="/basket" exact component={() => <p>basket</p>} />
                     <Route path="/orders" exact component={() => <p>orders</p>} />
-                    <Route path="/logout" exact component={() => <p>logout</p>} />
+                    <Route path="/logout" exact component={Logout} />
                     <Route component={fourOFour} />
                 </Switch >
             );

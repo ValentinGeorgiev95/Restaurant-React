@@ -60,6 +60,8 @@ class Home extends React.Component {
     }
 
     render() {
+        console.log('home');
+        console.log(this.props, 'props home')
         return (
             <div className="main home">
                 <div className="intro">

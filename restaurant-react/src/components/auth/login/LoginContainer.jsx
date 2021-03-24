@@ -1,7 +1,7 @@
 import React from 'react';
 import Login from './Login';
 import { connect } from 'react-redux';
-import { auth } from '../../store/actions/auth';
+import { auth } from '../../../store/actions/auth';
 
 const LoginContainer = (props) => {
     return <Login {...props} />
@@ -12,7 +12,6 @@ const mapStateToProps = state => {
         loading: state.auth.loading,
         error: state.auth.error,
         isAuthenticated: state.auth.token !== null,
-        authRedirectPath: state.auth.authRedirectPath
     }
 }
 

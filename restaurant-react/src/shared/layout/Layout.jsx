@@ -1,9 +1,10 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Routes from '../routes/Routes';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 
-function Layout() {
+const Layout = (props) => {
     return (
         <div className="wrapper">
             <Header />
@@ -13,4 +14,4 @@ function Layout() {
     )
 }
 
-export default Layout;
+export default withRouter(Layout);
