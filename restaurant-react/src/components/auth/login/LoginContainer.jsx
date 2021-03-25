@@ -4,14 +4,22 @@ import { connect } from 'react-redux';
 import { auth } from '../../../store/actions/auth';
 
 const LoginContainer = (props) => {
-    return <Login {...props} />
+    console.log(props, 'props');
+    return (
+        <Login
+            {...props}
+            loading={props.loading}
+            error={props.error}
+            isAuthenticated={props.isAuthenticated}
+        />
+    )
 }
 
 const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
         error: state.auth.error,
-        isAuthenticated: state.auth.token !== null,
+        isAuthenticated: state.auth.token,
     }
 }
 

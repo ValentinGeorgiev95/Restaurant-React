@@ -44,13 +44,13 @@ class Login extends React.Component {
     }
 
     render() {
+        console.log(this.props, 'props')
         let authRedirect = null;
         if (this.props.isAuthenticated) {
             authRedirect = <Redirect to={'/'} />
         }
         return (
             <section className="section-login">
-                {authRedirect}
                 <div className="overlay"></div>
                 <div className="shell d-flex align-items-center justify-content-center flex-column h-100">
                     <h3 className="logo">Valentino<span>.tasty</span></h3>

@@ -5,6 +5,8 @@ import { authCheckState } from '../../store/actions/auth';
 import Home from '../../components/home/Home';
 import Login from '../../components/auth/login/LoginContainer';
 import Logout from '../../components/auth/logout/LogoutContainer';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 const fourOFour = () => {
     return (
@@ -46,7 +48,16 @@ class Routes extends React.Component {
             );
         }
         return (
-            routes
+            // routes
+
+            <Switch>
+                <PublicRoute path="/" exact component={Home} />
+                <PublicRoute path="/basket" exact component={() => <p>basket</p>} />
+                <PrivateRoute path="/orders" exact component={() => <p>orders</p>} />
+                <PublicRoute path="/login" exact component={Login} />
+                <PrivateRoute path="/logout" exact component={Logout} />
+                <PublicRoute component={fourOFour} />
+            </Switch>
         )
     }
 }
