@@ -38,7 +38,6 @@ class Footer extends React.Component {
                 this.setState({
                     email: null,
                 });
-                console.log(response.data)
                 // TO DO => modal for success subscribtion !!!
             })
             // TO DO => modal for error in subscribing !!!

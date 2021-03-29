@@ -3,7 +3,7 @@ import axios from '../../axios-orders';
 
 import BurgerImage from '../../assets/img/cuts/burger.jpg';
 
-const MenuSection = (props) => {
+const MenuSection = ({ id, menuRef }) => {
     const [menuCatalog, setMenuCatalog] = useState([]);
 
     useEffect(() => {
@@ -15,7 +15,7 @@ const MenuSection = (props) => {
     }, []);
 
     return (
-        <section className="section-menu">
+        <section className="section-menu" id={id} ref={menuRef}>
             <div className="shell">
                 <div className="section-head text-center">
                     <h4 className="section-subheading">Specialties</h4>

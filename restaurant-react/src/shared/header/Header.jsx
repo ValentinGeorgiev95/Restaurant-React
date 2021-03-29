@@ -1,56 +1,72 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
 
-class Header extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-        }
-
-        this.header = React.createRef();
-    }
-
-    stickyHeader = () => {
-        const offset = window.scrollY;
-
-        if (offset > 300) {
-            this.header.current.classList.add('fixed');
-        } else {
-            this.header.current.classList.remove('fixed');
-        }
-    }
-
-    componentDidMount = () => {
-        document.addEventListener('scroll', this.stickyHeader);
-    }
-
-    componentWillUnmount = () => {
-        document.removeEventListener('scroll', this.stickyHeader);
-    }
-
-    render() {
-        return (
-            <header className="header" ref={this.header}>
-                <div className="shell d-flex align-items-center justify-content-between">
-                    <Link to={'/'} className="logo">Valentino<span>.Tasty</span></Link>
-                    <div className="nav-utilities">
-                        <ul className="d-flex align-items-center">
-                            <li>
-                                <NavLink to={'/'} exact>Home</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/basket'} exact>basket</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to={'/login'} exact>Login</NavLink>
-                            </li>
-                        </ul>
-                    </div>{/* nav-utilities */}
-                </div>{/* shell */}
-            </header>
-        );
-    }
+const Header = ({ visibleSection, headerRef, introRef, aboutRef, menuRef, testimonialsRef, chefsRef, scrollTo }) => {
+    return (
+        <header className="header" ref={headerRef}>
+            <div className="shell d-flex align-items-center justify-content-between">
+                <p className="logo">Valentino<span>.Tasty</span></p>
+                <div className="nav-utilities">
+                    <ul className="d-flex align-items-center">
+                        <li>
+                            <button
+                                type="button"
+                                className={`${visibleSection === 'Intro' ? 'active' : ''}`}
+                                onClick={() => {
+                                    scrollTo(introRef.current)
+                                }}
+                            >
+                                Home
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                className={`${visibleSection === 'About' ? 'active' : ''}`}
+                                onClick={() => {
+                                    scrollTo(aboutRef.current)
+                                }}
+                            >
+                                About
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                className={`${visibleSection === 'Menu' ? 'active' : ''}`}
+                                onClick={() => {
+                                    scrollTo(menuRef.current)
+                                }}
+                            >
+                                Menu
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                className={`${visibleSection === 'Testimonials' ? 'active' : ''}`}
+                                onClick={() => {
+                                    scrollTo(testimonialsRef.current)
+                                }}
+                            >
+                                Testimonials
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                className={`${visibleSection === 'Chefs' ? 'active' : ''}`}
+                                onClick={() => {
+                                    scrollTo(chefsRef.current)
+                                }}
+                            >
+                                Chefs
+                            </button>
+                        </li>
+                    </ul>
+                </div>{/* nav-utilities */}
+            </div>{/* shell */}
+        </header>
+    );
 }
 
 export default Header;

@@ -2,6 +2,10 @@
     background-color: #1a1a1a;
     padding-top: 80px;
 
+    @include sm {
+        padding-top: 60px;
+    }
+
     h4 {
         text-transform: uppercase;
         margin-bottom: 40px;
@@ -9,6 +13,10 @@
         font-weight: 700;
         color: #fff;
         text-align: left;
+
+        @include sm {
+            margin-bottom: 15px;
+        }
     }
 
     p {
@@ -26,14 +34,34 @@
 .open-hours,
 .newsletter {
     width: 30%;
+
+    @include sm {
+        width: 100%;
+    }
 }
 
 .footer-text {
     padding-right: 60px;
+
+    @include sm {
+        padding-right: 0;
+    }
 }
 
-.open-hours>ul>li+li {
-    margin-top: 5px;
+.open-hours {
+    @include sm {
+        margin-top: 30px;
+    }
+
+    >ul>li+li {
+        margin-top: 5px;
+    }
+}
+
+.newsletter {
+    @include sm {
+        margin-top: 30px;
+    }
 }
 
 .form-newsletter {

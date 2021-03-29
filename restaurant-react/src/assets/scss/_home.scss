@@ -1,8 +1,28 @@
 .section-about {
+
+    .shell {
+        @include sm {
+            flex-direction: column-reverse;
+
+            .section-aside,
+            .section-text {
+                width: 100%;
+            }
+        }
+    }
+
     .section-aside {
         width: 400px;
         background-color: $red;
         padding: 40px 30px;
+
+        @include lg {
+            width: 350px;
+        }
+
+        @include sm {
+            padding: 30px;
+        }
 
         >h4 {
             color: #fff;
@@ -18,11 +38,22 @@
         padding: 80px 270px 0 50px;
         flex: 1 0;
 
+        @include md {
+            padding: 80px 0 0 50px;
+        }
+
+        @include sm {
+            padding: 40px 0;
+        }
+
         >p {
             margin-top: 25px;
             line-height: 2;
             color: $gray;
 
+            @include sm {
+                margin-top: 10px;
+            }
         }
 
         >img {
@@ -30,6 +61,14 @@
             right: 0;
             bottom: 0;
             width: 300px;
+
+            @include lg {
+                width: 250px;
+            }
+
+            @include md {
+                display: none;
+            }
         }
     }
 }
@@ -97,6 +136,156 @@
     }
 }
 
+.section-menu {
+    margin: 70px 0 90px 0;
+
+    @include sm {
+        margin: 40px 0 60px 0;
+    }
+
+    .section-body {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+}
+
+.menu-column {
+    width: 32%;
+    background-color: #fcfcfc;
+    border: 1px dashed #e6e6e6;
+    border-radius: 5px;
+    padding: 50px 20px;
+    margin-top: 30px;
+    position: relative;
+
+    @include md {
+        width: 48%;
+    }
+
+    @include sm {
+        width: 100%;
+        margin-top: 25px;
+    }
+
+    &:before,
+    &:after {
+        @include pseudo-element;
+        top: 10px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 40px;
+        height: 40px;
+        opacity: 0.6;
+    }
+
+    &:before {
+        background-image: url('../img/icons/vegetable.svg');
+        left: 10px;
+    }
+
+    &:after {
+        background-image: url('../img/icons/champagne-glass.svg');
+        right: 10px;
+    }
+
+    >h5 {
+        text-transform: uppercase;
+        font-size: 22px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 30px;
+        color: $light-black;
+    }
+}
+
+.menu-product {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    transition: 0.3s;
+
+    @include sm {
+        align-items: center;
+    }
+
+    &:hover {
+        &:after {
+            border-color: $red !important;
+            opacity: 0.75;
+        }
+
+        .product-content {
+            >p {
+                &:first-child {
+                    >span:first-child {
+                        color: $red;
+                    }
+                }
+            }
+        }
+    }
+
+    &+.menu-product {
+        margin-top: 50px;
+    }
+
+    &:not(:last-child):after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: -26px;
+        transform: translateX(-50%);
+        border: 1px dashed #e6e6e6;
+        width: 100%;
+        transition: 0.3s;
+    }
+
+    >img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+}
+
+.product-content {
+    padding-left: 20px;
+    position: relative;
+
+    >p {
+        font-size: 17px;
+        line-height: 1.5;
+
+        &:first-child {
+            font-weight: 500;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        &:last-child {
+            font-weight: 400;
+            margin-top: 10px;
+            text-transform: capitalize;
+        }
+
+        >span {
+            display: block;
+            transition: 0.3s;
+
+            &:first-child {
+                padding-right: 10px;
+            }
+
+            &:last-child {
+                font-weight: 700;
+                color: $red;
+            }
+        }
+    }
+}
+
 .section-features {
     background-image: url('../img/cuts/chefs-cooking.jpg');
     background-size: cover;
@@ -105,6 +294,15 @@
     background-attachment: fixed;
     height: 400px;
     position: relative;
+
+    @include xs {
+        height: 350px;
+    }
+
+    h5,
+    h3 {
+        text-align: center;
+    }
 
     h5 {
         color: $light-white;
@@ -118,6 +316,14 @@
         font-weight: 900;
         color: #fff;
         font-size: 40px;
+
+        @include lg {
+            font-size: 36px;
+        }
+
+        @include md {
+            font-size: 32px;
+        }
     }
 
     .shell {
@@ -133,6 +339,14 @@
     background-attachment: fixed;
     position: relative;
     padding: 100px 0;
+
+    @include lg {
+        padding: 80px 0;
+    }
+
+    @include md {
+        padding: 60px 0;
+    }
 
     .section-head,
     .section-body {
@@ -151,6 +365,10 @@
         margin: 0 auto;
         padding-bottom: 60px;
 
+        @include xs {
+            width: 100% !important;
+        }
+
         .slide {
             background-color: transparent;
         }
@@ -162,6 +380,10 @@
             line-height: 1.4;
             color: #fff;
             margin: 60px 0 20px 0;
+
+            @include md {
+                margin: 40px 0 20px 0;
+            }
         }
 
         img {
@@ -178,8 +400,29 @@
     background-color: #fafafa;
     padding: 100px 0;
 
+    @include lg {
+        padding: 80px 0
+    }
+
+    @include md {
+        padding: 60px 0;
+    }
+
+    @include sm {
+        padding: 40px 0 60px 0;
+    }
+
     .section-body {
         margin-top: 50px;
+
+        @include sm {
+            flex-flow: row wrap;
+            margin-top: 25px;
+        }
+
+        @include xs {
+            margin-top: 20px;
+        }
     }
 }
 
@@ -188,6 +431,24 @@
     background-color: #fff;
     position: relative;
     z-index: 1;
+
+    @include sm {
+        width: 48%;
+    }
+
+    @media only screen and (min-width: 577px) and (max-width: 768px) {
+        &:nth-child(n+3) {
+            margin-top: 60px;
+        }
+    }
+
+    @include xs {
+        width: 100%;
+
+        &:nth-child(n+2) {
+            margin-top: 60px;
+        }
+    }
 
     &:before,
     &:after {
@@ -212,6 +473,10 @@
     >h5,
     >p {
         padding: 0 15px;
+
+        @include xs {
+            text-align: center;
+        }
     }
 
     >h5 {
@@ -239,6 +504,14 @@
             padding-bottom: 20px;
         }
     }
+
+    img {
+        @include xs {
+            display: block;
+            width: 320px;
+            margin: 0 auto;
+        }
+    }
 }
 
 .section-callout {
@@ -249,6 +522,14 @@
         font-weight: 700;
         color: #fff;
         font-size: 40px;
+
+        @include lg {
+            font-size: 36px;
+        }
+
+        @include md {
+            font-size: 32px;
+        }
     }
 
     >a {

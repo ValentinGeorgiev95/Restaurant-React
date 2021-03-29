@@ -105,6 +105,14 @@
     font-family: $Dancing;
     margin-bottom: -20px;
     z-index: 0;
+
+    @include lg {
+        font-size: 36px;
+    }
+
+    @include md {
+        font-size: 32px
+    }
 }
 
 .section-title {
@@ -115,6 +123,14 @@
     line-height: 1.333;
     position: relative;
     z-index: 1;
+
+    @include lg {
+        font-size: 36px;
+    }
+
+    @include md {
+        font-size: 32px
+    }
 }
 
 .list-socials {
