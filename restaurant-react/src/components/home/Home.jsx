@@ -29,7 +29,7 @@ class Home extends React.Component {
                 checkInDate: null,
                 checkInTime: null,
                 guestsNumber: null,
-            }
+            },
         }
 
         this.headerRef = React.createRef();

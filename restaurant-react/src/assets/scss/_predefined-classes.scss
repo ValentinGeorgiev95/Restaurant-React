@@ -84,6 +84,20 @@
     text-align: center;
 }
 
+.was-validated {
+    .text-danger {
+        display: block;
+    }
+}
+
+.text-danger {
+    display: none;
+    font-size: 14px;
+    color: $red;
+    margin-top: 5px;
+    font-weight: 400;
+}
+
 .overlay {
     position: absolute;
     top: 0;
@@ -93,6 +107,10 @@
     background: #000;
     opacity: .7;
     z-index: 1;
+}
+
+.prevent-scroll {
+    overflow: hidden;
 }
 
 .section-subheading {

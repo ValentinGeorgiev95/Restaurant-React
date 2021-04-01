@@ -1,27 +1,36 @@
 import React from 'react';
 
-const FormInput = (props) => {
-    const onChange = (e) => {
-        props.onChange(e);
-    }
-
+const FormInput = ({
+    label,
+    type,
+    value,
+    name,
+    placeholder,
+    maxLength,
+    required,
+    disabled,
+    displayErrorMsg,
+    errorMessage,
+    isValid,
+    onChange
+}) => {
     return (
-        <div className="form-group d-flex flex-column">
-            {props.label && (
-                <label>{props.label}</label>
+        <div className={"form-group d-flex flex-column" + (!isValid ? ' invalid' : '')}>
+            {label && (
+                <label>{label}</label>
             )}
             <input
-                type={props.type}
-                onChange={onChange}
-                value={props.value ?? ''}
-                name={props.name}
-                placeholder={props.placeholder}
-                maxLength={props.maxLength}
-                required={props.required}
-                disabled={props.disabled}
+                type={type}
+                onChange={(e) => onChange(e)}
+                value={value ?? ''}
+                name={name}
+                placeholder={placeholder}
+                maxLength={maxLength}
+                required={required}
+                disabled={disabled}
             />
-            {props.displayErrorMsg && (
-                <span className="text-danger">{props.errorMessage}</span>
+            {!displayErrorMsg && (
+                <span className="text-danger">{errorMessage}</span>
             )}
         </div>
     )
