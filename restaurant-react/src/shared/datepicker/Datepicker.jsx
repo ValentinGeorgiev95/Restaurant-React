@@ -2,10 +2,7 @@ import React from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const Datepicker = (props) => {
-    const onChange = (date) => {
-        props.onChange(date);
-    }
+const Datepicker = ({ label, selected, onChange, displayErrorMsg, errorMessage }) => {
 
     const tomorrowsDate = () => {
         let date = new Date();
@@ -16,17 +13,19 @@ const Datepicker = (props) => {
 
     return (
         <div className="form-group datepicker d-flex flex-column">
-            <label>{props.label}</label>
+            {label && (
+                <label>{label}</label>
+            )}
             <DatePicker
-                selected={props.selected}
+                selected={selected}
                 onChange={onChange}
                 dateFormat={'dd/MM/yyyy'}
                 placeholderText={'Please select a date'}
                 minDate={tomorrowsDate()}
-                isClearable
-            >
-                {/* <p>Making a reservation for today's date is not available!</p> */}
-            </DatePicker>
+            />
+            {displayErrorMsg && (
+                <span className="text-danger">{errorMessage}</span>
+            )}
         </div>
     )
 }

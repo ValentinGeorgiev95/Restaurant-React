@@ -3,18 +3,16 @@ import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import Header from '../../shared/header/Header';
 import Footer from '../../shared/footer/Footer';
-import FormInput from '../../shared/form-input/FormInput';
-import DatePicker from '../../shared/datepicker/Datepicker';
-import TimePicker from '../../shared/timepicker/Timepicker';
-import MenuSection from '../../shared/menu-section/MenuSection';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import MenuSection from './menu-section/MenuSection';
+import AboutSection from './about-section/AboutSection';
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import HomeCarouseImageOne from '../../assets/img/cuts/home-intro-one.jpg';
 import HomeCarouseImageTwo from '../../assets/img/cuts/home-intro-two.jpg';
-import ChefImage from '../../assets/img/cuts/chef.png';
 import PersonTestimonialImg from '../../assets/img/cuts/person-testimonial.jpg';
 import MainChefOneImage from '../../assets/img/cuts/main-chef-one.jpg'
 import MainChefTwoImage from '../../assets/img/cuts/main-chef-two.jpg'
+
 
 class Home extends React.Component {
     constructor(props) {
@@ -22,14 +20,6 @@ class Home extends React.Component {
 
         this.state = {
             visibleSection: null,
-            bookingModel: {
-                name: null,
-                email: null,
-                phone: null,
-                checkInDate: null,
-                checkInTime: null,
-                guestsNumber: null,
-            },
         }
 
         this.headerRef = React.createRef();
@@ -46,35 +36,6 @@ class Home extends React.Component {
             { section: "Testimonials", ref: this.testimonialsRef },
             { section: "Chefs", ref: this.chefsRef },
         ];
-    }
-
-    handleInputChange = (e) => {
-        const { name, value } = e.target;
-
-        this.setState(prevState => ({
-            bookingModel: {
-                ...prevState.bookingModel,
-                [name]: value
-            }
-        }))
-    }
-
-    handleDateChange = (date, pickerType) => {
-        if (pickerType === 'datepicker') {
-            this.setState(prevState => ({
-                bookingModel: {
-                    ...prevState.bookingModel,
-                    checkInDate: date,
-                },
-            }));
-        } else if (pickerType === 'timepicker') {
-            this.setState(prevState => ({
-                bookingModel: {
-                    ...prevState.bookingModel,
-                    checkInTime: date,
-                },
-            }));
-        }
     }
 
     getDimensions = ele => {
@@ -97,7 +58,6 @@ class Home extends React.Component {
     };
 
     handleScroll = () => {
-        // const { height: headerHeight } = this.getDimensions(this.headerRef.current);
         const scrollPosition = window.scrollY + 200;
 
         const selected = this.sectionRefs.find(item => {
@@ -147,7 +107,7 @@ class Home extends React.Component {
                     chefsRef={this.chefsRef}
                     scrollTo={this.scrollTo}
                 />
-                <div className="main home">
+                <div className="main">
                     <section className="intro" id='Intro' ref={this.introRef}>
                         <Carousel
                             autoPlay
@@ -176,73 +136,7 @@ class Home extends React.Component {
                             </div>
                         </Carousel>
                     </section>{/* section-intro */}
-                    <section className="section-about" id="About" ref={this.aboutRef}>
-                        <div className="shell d-flex justify-content-center">
-                            <div className="section-aside">
-                                <h4>Book your table</h4>
-                                <form
-                                    className="form-about"
-                                    noValidate
-                                >
-                                    <FormInput
-                                        type='text'
-                                        onChange={this.handleInputChange}
-                                        value={this.state.bookingModel.name}
-                                        name='name'
-                                        label='Name'
-                                        placeholder='Name'
-                                        maxLength='50'
-                                        required={true}
-                                    />
-                                    <FormInput
-                                        type='email'
-                                        onChange={this.handleInputChange}
-                                        value={this.state.bookingModel.email}
-                                        name='email'
-                                        label='Email'
-                                        placeholder='Email'
-                                        maxLength='80'
-                                        required={true}
-                                    />
-                                    <FormInput
-                                        type='number'
-                                        onChange={this.handleInputChange}
-                                        value={this.state.bookingModel.phone}
-                                        name='phone'
-                                        label='Phone'
-                                        placeholder='Phone'
-                                        maxLength='20'
-                                        required={true}
-                                    />
-                                    <DatePicker
-                                        label='Preferred date'
-                                        selected={this.state.bookingModel.checkInDate}
-                                        onChange={date => this.handleDateChange(date, 'datepicker')}
-                                    />
-                                    <TimePicker
-                                        label='Time for check in'
-                                        selected={this.state.bookingModel.checkInTime}
-                                        onChange={date => this.handleDateChange(date, 'timepicker')}
-                                    />
-                                    <button type="submit" className="btn-submit">
-                                        Book your table now
-                                </button>
-                                </form>{/* form-about */}
-                            </div>{/* section-aside */}
-                            <div className="section-text ">
-                                <h4 className="section-subheading">About</h4>
-                                <h3 className="section-title">Welcome to Valentino.Tasty</h3>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                    It has survived not only five centuries, but also the leap into electronic typesetting,
-                                    remaining essentially unchanged. It was popularised in the 1960s with the release of.
-                                </p>
-                                <img src={ChefImage} alt="" />
-                            </div>{/* section-text */}
-                        </div>{/* shell */}
-                    </section>{/* section-about */}
+                    <AboutSection id="About" aboutRef={this.aboutRef} />
                     <section className="section-features">
                         <div className="overlay h-100 w-100"></div>
                         <div className="shell h-100 d-flex align-items-center justify-content-center flex-column">

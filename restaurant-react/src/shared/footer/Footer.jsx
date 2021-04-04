@@ -16,7 +16,7 @@ class Footer extends React.Component {
 
         this.state = {
             email: null,
-            isEmailValid: false,
+            emailError: false,
             subscriptionSuccess: false,
             subscriptionFailed: false,
         }
@@ -38,6 +38,9 @@ class Footer extends React.Component {
         this.subscribeForm.current.classList.add('was-validated');
 
         if (stringUtility.isNullOrWhiteSpace(this.state.email) || !emailUtility.isValid(this.state.email)) {
+            this.setState({
+                emailError: true,
+            })
             return;
         }
 
@@ -50,16 +53,19 @@ class Footer extends React.Component {
             .then(response => {
                 this.setState(prevState => ({
                     email: null,
-
-                    subscriptionSuccess: !prevState.subscriptionSuccess,
+                    subscriptionSuccess: true,
+                    subscriptionFailed: false,
                 }));
+
                 document.body.classList.add('prevent-scroll');
                 this.subscribeForm.current.classList.remove('was-validated');
             })
             .catch(error => {
                 this.setState(prevState => ({
-                    subscriptionFailed: !prevState.subscriptionFailed,
+                    subscriptionSuccess: false,
+                    subscriptionFailed: true,
                 }));
+
                 document.body.classList.add('prevent-scroll');
                 this.subscribeForm.current.classList.remove('was-validated');
             });
@@ -173,7 +179,7 @@ class Footer extends React.Component {
                                     placeholder='Your email'
                                     maxLength='100'
                                     required={true}
-                                    displayErrorMsg={this.state.isEmailValid}
+                                    displayErrorMsg={this.state.emailError}
                                     errorMessage='Please enter valid email address'
                                 />
                                 <button type="submit">Subscribe</button>
@@ -188,7 +194,6 @@ class Footer extends React.Component {
                     <Modal
                         title='Success'
                         content='Thank you for your subscription!'
-                        btnText='close'
                         closeModal={this.handleCloseModal}
                     />
                 )}

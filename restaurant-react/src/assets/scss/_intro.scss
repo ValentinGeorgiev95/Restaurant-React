@@ -6,6 +6,11 @@
         min-height: 540px;
     }
 
+    @include xs {
+        height: 65vh;
+        min-height: 400px;
+    }
+
     >.carousel-root {
         height: 100%;
 
@@ -49,6 +54,10 @@
 .intro-text {
     color: #fff;
 
+    @include xs {
+        padding-top: 40px;
+    }
+
     >h1 {
         font-family: $Dancing;
         font-size: 135px;
@@ -62,6 +71,14 @@
 
         @include md {
             font-size: 64px;
+        }
+
+        @include sm {
+            font-size: 52px;
+        }
+
+        @include xs {
+            font-size: 44px;
         }
     }
 }

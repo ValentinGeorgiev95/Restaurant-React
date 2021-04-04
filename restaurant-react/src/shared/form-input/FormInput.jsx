@@ -8,14 +8,12 @@ const FormInput = ({
     placeholder,
     maxLength,
     required,
-    disabled,
     displayErrorMsg,
     errorMessage,
-    isValid,
     onChange
 }) => {
     return (
-        <div className={"form-group d-flex flex-column" + (!isValid ? ' invalid' : '')}>
+        <div className="form-group d-flex flex-column">
             {label && (
                 <label>{label}</label>
             )}
@@ -27,9 +25,8 @@ const FormInput = ({
                 placeholder={placeholder}
                 maxLength={maxLength}
                 required={required}
-                disabled={disabled}
             />
-            {!displayErrorMsg && (
+            {displayErrorMsg && (
                 <span className="text-danger">{errorMessage}</span>
             )}
         </div>

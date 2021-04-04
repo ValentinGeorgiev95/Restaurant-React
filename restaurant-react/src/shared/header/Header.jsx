@@ -7,6 +7,8 @@ class Header extends React.Component {
         this.state = {
             switchToMobileNav: false,
         }
+
+        this.hamburgerInput = React.createRef();
     }
 
     handleResize = () => {
@@ -15,14 +17,27 @@ class Header extends React.Component {
         });
     }
 
+    handleClickOutside = (e) => {
+        if (
+            this.hamburgerInput.current &&
+            (!this.hamburgerInput.current.contains(e.target) || this.hamburgerInput.current.checked)
+        ) {
+            setTimeout(() => {
+                this.hamburgerInput.current.checked = false;
+            }, 100);
+        }
+    }
+
     componentDidMount = () => {
         this.handleResize();
 
         window.addEventListener('resize', this.handleResize);
+        document.addEventListener("mousedown", this.handleClickOutside);
     }
 
     componentWillUnmount = () => {
         window.removeEventListener('resize', this.handleResize);
+        document.removeEventListener("mousedown", this.handleClickOutside);
     }
 
     render() {
@@ -85,7 +100,7 @@ class Header extends React.Component {
                         </div>
                     ) : (
                         <div className="hamburger-menu">
-                            <input type="checkbox" />
+                            <input type="checkbox" ref={this.hamburgerInput} />
                             <span></span>
                             <span></span>
                             <span></span>

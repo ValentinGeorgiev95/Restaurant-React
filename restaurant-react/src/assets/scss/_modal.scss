@@ -1,4 +1,4 @@
-.modal-overlay {
+.modal {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -6,15 +6,32 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: $light-black;
     z-index: 10;
 }
 
-.modal {
+.modal-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $light-black;
+}
+
+.modal-dialog {
     width: 600px;
     margin: 10% auto 0 auto;
     background-color: #fff;
     box-shadow: 0 3px 6px $light-black;
+    position: relative;
+    z-index: 10;
+
+    @include sm {
+        width: 85%;
+        margin: 120px auto 0 auto;
+    }
 }
 
 .modal-head,

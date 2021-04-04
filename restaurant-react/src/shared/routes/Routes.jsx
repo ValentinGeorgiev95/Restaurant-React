@@ -1,15 +1,16 @@
 import React from 'react';
-import { Switch, Route } from "react-router-dom";
-import Home from '../../components/home/Home';
+import { Switch, Route, Link } from "react-router-dom";
+import Home from '../../components/home-page/Home';
 
 function FourOFour() {
     return (
-        <div className="page-not-found d-flex align-items-center justify-content-center">
+        <div className="page-not-found d-flex align-items-center justify-content-center flex-column w-100">
             <h2 className="text-center">
-                The page you are looking for doesn't exist.
+                404 Page not found
                 <span></span>
-                Please select a page from our navigation menu.
+                The page you are looking for doesn't exist.
             </h2>
+            <Link to={'/'}>Back to home page</Link>
         </div>
     )
 }

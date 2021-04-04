@@ -87,3 +87,12 @@ button {
     box-shadow: none;
     cursor: pointer;
 }
+
+.react-datepicker-popper {
+    z-index: 3;
+}
+
+.react-datepicker__time-list-item--disabled,
+.react-datepicker__day--disabled {
+    cursor: not-allowed !important;
+}

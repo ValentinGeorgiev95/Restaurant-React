@@ -1,0 +1,23 @@
+.page-not-found {
+    height: 100vh;
+    background-color: $dirty-white;
+
+    h2 {
+        font-size: 36px;
+
+        >span {
+            display: block;
+        }
+    }
+
+    a {
+        font-size: 36px;
+        margin-top: 50px;
+        text-decoration: underline;
+        color: $gold;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
